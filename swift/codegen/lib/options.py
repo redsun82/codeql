@@ -13,6 +13,8 @@ def _init_options():
     Option("--verbose", "-v", action="store_true")
     Option("--schema", tags=["schema"], type=pathlib.Path, default=paths.swift_dir / "codegen/schema.yml")
     Option("--dbscheme", tags=["dbscheme"], type=pathlib.Path, default=paths.swift_dir / "ql/lib/swift.dbscheme")
+    Option("--ql-output", tags=["ql"], type=pathlib.Path, default=paths.swift_dir / "ql/lib/codeql/swift/generated")
+    Option("--ql-stub-output", tags=["ql"], type=pathlib.Path, default=paths.swift_dir / "ql/lib/codeql/swift/elements")
 
 
 _options = collections.defaultdict(list)
