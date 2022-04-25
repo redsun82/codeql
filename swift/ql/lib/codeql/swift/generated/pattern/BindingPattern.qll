@@ -6,8 +6,8 @@ class BindingPatternBase extends @binding_pattern, Pattern {
 
   Pattern getSubPattern() {
     exists(Pattern x |
-      binding_patterns(this, x)
-      and
-      result = x.resolve())
+      binding_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 }

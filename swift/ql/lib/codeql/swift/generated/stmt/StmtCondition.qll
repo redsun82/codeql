@@ -7,16 +7,12 @@ class StmtConditionBase extends @stmt_condition, AstNode {
 
   ConditionElement getElement(int index) {
     exists(ConditionElement x |
-      stmt_condition_elements(this, index, x)
-      and
-      result = x.resolve())
+      stmt_condition_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  ConditionElement getAnElement() {
-    result = getElement(_)
-  }
+  ConditionElement getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

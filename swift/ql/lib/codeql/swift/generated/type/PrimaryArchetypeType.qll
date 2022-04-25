@@ -7,8 +7,8 @@ class PrimaryArchetypeTypeBase extends @primary_archetype_type, ArchetypeType {
 
   GenericTypeParamType getInterfaceType() {
     exists(GenericTypeParamType x |
-      primary_archetype_types(this, x)
-      and
-      result = x.resolve())
+      primary_archetype_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

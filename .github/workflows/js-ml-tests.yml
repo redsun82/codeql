@@ -27,9 +27,8 @@ jobs:
       - uses: ./.github/actions/fetch-codeql
 
       - name: Check QL formatting
-        # exclude swift generated files for the moment, we may come back to it at some point
         run: |
-          find . "(" "(" -name "*.ql" -or -name "*.qll" ")" -and -not -path "./swift/*/generated/*" ")" -print0 | \
+          find . "(" -name "*.ql" -or -name "*.qll" ")" -print0 | \
             xargs -0 codeql query format --check-only
 
   qlcompile:

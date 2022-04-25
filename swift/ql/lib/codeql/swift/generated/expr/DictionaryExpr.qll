@@ -7,16 +7,12 @@ class DictionaryExprBase extends @dictionary_expr, CollectionExpr {
 
   Expr getElement(int index) {
     exists(Expr x |
-      dictionary_expr_elements(this, index, x)
-      and
-      result = x.resolve())
+      dictionary_expr_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Expr getAnElement() {
-    result = getElement(_)
-  }
+  Expr getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

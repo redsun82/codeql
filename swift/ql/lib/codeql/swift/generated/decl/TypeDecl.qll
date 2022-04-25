@@ -2,8 +2,5 @@
 import codeql.swift.elements.decl.ValueDecl
 
 class TypeDeclBase extends @type_decl, ValueDecl {
-
-  string getName() {
-    type_decls(this, result)
-  }
+  string getName() { type_decls(this, result) }
 }

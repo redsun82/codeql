@@ -8,38 +8,30 @@ class CaseStmtBase extends @case_stmt, Stmt {
 
   Stmt getBody() {
     exists(Stmt x |
-      case_stmts(this, x)
-      and
-      result = x.resolve())
+      case_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 
   CaseLabelItem getLabel(int index) {
     exists(CaseLabelItem x |
-      case_stmt_labels(this, index, x)
-      and
-      result = x.resolve())
+      case_stmt_labels(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  CaseLabelItem getALabel() {
-    result = getLabel(_)
-  }
+  CaseLabelItem getALabel() { result = getLabel(_) }
 
-  int getNumberOfLabels() {
-    result = count(getALabel())
-  }
+  int getNumberOfLabels() { result = count(getALabel()) }
 
   VarDecl getVariable(int index) {
     exists(VarDecl x |
-      case_stmt_variables(this, index, x)
-      and
-      result = x.resolve())
+      case_stmt_variables(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  VarDecl getAVariable() {
-    result = getVariable(_)
-  }
+  VarDecl getAVariable() { result = getVariable(_) }
 
-  int getNumberOfVariables() {
-    result = count(getAVariable())
-  }
+  int getNumberOfVariables() { result = count(getAVariable()) }
 }

@@ -2,11 +2,10 @@
 import codeql.swift.elements.expr.Expr
 
 class IdentityExprBase extends @identity_expr, Expr {
-
   Expr getSubExpr() {
     exists(Expr x |
-      identity_exprs(this, x)
-      and
-      result = x.resolve())
+      identity_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -6,8 +6,8 @@ class VarargExpansionExprBase extends @vararg_expansion_expr, Expr {
 
   Expr getSubExpr() {
     exists(Expr x |
-      vararg_expansion_exprs(this, x)
-      and
-      result = x.resolve())
+      vararg_expansion_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

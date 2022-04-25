@@ -7,8 +7,8 @@ class DoStmtBase extends @do_stmt, LabeledStmt {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      do_stmts(this, x)
-      and
-      result = x.resolve())
+      do_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 }

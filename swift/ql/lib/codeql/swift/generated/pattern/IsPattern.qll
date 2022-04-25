@@ -7,15 +7,15 @@ class IsPatternBase extends @is_pattern, Pattern {
 
   TypeRepr getCastTypeRepr() {
     exists(TypeRepr x |
-      is_patterns(this, x)
-      and
-      result = x.resolve())
+      is_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 
   Pattern getSubPattern() {
     exists(Pattern x |
-      is_pattern_sub_patterns(this, x)
-      and
-      result = x.resolve())
+      is_pattern_sub_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 }

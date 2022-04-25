@@ -7,16 +7,12 @@ class GenericFunctionTypeBase extends @generic_function_type, AnyFunctionType {
 
   GenericTypeParamType getGenericParam(int index) {
     exists(GenericTypeParamType x |
-      generic_function_type_generic_params(this, index, x)
-      and
-      result = x.resolve())
+      generic_function_type_generic_params(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  GenericTypeParamType getAGenericParam() {
-    result = getGenericParam(_)
-  }
+  GenericTypeParamType getAGenericParam() { result = getGenericParam(_) }
 
-  int getNumberOfGenericParams() {
-    result = count(getAGenericParam())
-  }
+  int getNumberOfGenericParams() { result = count(getAGenericParam()) }
 }

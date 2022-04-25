@@ -7,8 +7,8 @@ class DeferStmtBase extends @defer_stmt, Stmt {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      defer_stmts(this, x)
-      and
-      result = x.resolve())
+      defer_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -7,16 +7,12 @@ class ArrayExprBase extends @array_expr, CollectionExpr {
 
   Expr getElement(int index) {
     exists(Expr x |
-      array_expr_elements(this, index, x)
-      and
-      result = x.resolve())
+      array_expr_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Expr getAnElement() {
-    result = getElement(_)
-  }
+  Expr getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

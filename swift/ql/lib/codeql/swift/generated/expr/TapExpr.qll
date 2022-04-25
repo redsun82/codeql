@@ -8,22 +8,22 @@ class TapExprBase extends @tap_expr, Expr {
 
   Expr getSubExpr() {
     exists(Expr x |
-      tap_expr_sub_exprs(this, x)
-      and
-      result = x.resolve())
+      tap_expr_sub_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   VarDecl getVar() {
     exists(VarDecl x |
-      tap_exprs(this, x, _)
-      and
-      result = x.resolve())
+      tap_exprs(this, x, _) and
+      result = x.resolve()
+    )
   }
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      tap_exprs(this, _, x)
-      and
-      result = x.resolve())
+      tap_exprs(this, _, x) and
+      result = x.resolve()
+    )
   }
 }

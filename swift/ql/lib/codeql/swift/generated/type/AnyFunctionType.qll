@@ -2,38 +2,27 @@
 import codeql.swift.elements.type.Type
 
 class AnyFunctionTypeBase extends @any_function_type, Type {
-
   Type getResult() {
     exists(Type x |
-      any_function_types(this, x)
-      and
-      result = x.resolve())
+      any_function_types(this, x) and
+      result = x.resolve()
+    )
   }
 
   Type getParamType(int index) {
     exists(Type x |
-      any_function_type_param_types(this, index, x)
-      and
-      result = x.resolve())
+      any_function_type_param_types(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Type getAParamType() {
-    result = getParamType(_)
-  }
+  Type getAParamType() { result = getParamType(_) }
 
-  int getNumberOfParamTypes() {
-    result = count(getAParamType())
-  }
+  int getNumberOfParamTypes() { result = count(getAParamType()) }
 
-  string getParamLabel(int index) {
-    any_function_type_param_labels(this, index, result)
-  }
+  string getParamLabel(int index) { any_function_type_param_labels(this, index, result) }
 
-  string getAParamLabel() {
-    result = getParamLabel(_)
-  }
+  string getAParamLabel() { result = getParamLabel(_) }
 
-  int getNumberOfParamLabels() {
-    result = count(getAParamLabel())
-  }
+  int getNumberOfParamLabels() { result = count(getAParamLabel()) }
 }

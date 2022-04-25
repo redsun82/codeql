@@ -6,8 +6,8 @@ class LValueTypeBase extends @l_value_type, Type {
 
   Type getObjectType() {
     exists(Type x |
-      l_value_types(this, x)
-      and
-      result = x.resolve())
+      l_value_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

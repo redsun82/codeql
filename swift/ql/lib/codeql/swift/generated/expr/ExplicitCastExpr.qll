@@ -2,11 +2,10 @@
 import codeql.swift.elements.expr.Expr
 
 class ExplicitCastExprBase extends @explicit_cast_expr, Expr {
-
   Expr getSubExpr() {
     exists(Expr x |
-      explicit_cast_exprs(this, x)
-      and
-      result = x.resolve())
+      explicit_cast_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

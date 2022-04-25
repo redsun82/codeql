@@ -2,5 +2,4 @@
 import codeql.swift.elements.decl.GenericContext
 import codeql.swift.elements.decl.TypeDecl
 
-class GenericTypeDeclBase extends @generic_type_decl, GenericContext, TypeDecl {
-}
+class GenericTypeDeclBase extends @generic_type_decl, GenericContext, TypeDecl { }

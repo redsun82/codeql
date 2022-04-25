@@ -8,15 +8,15 @@ class ForEachStmtBase extends @for_each_stmt, LabeledStmt {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      for_each_stmts(this, x)
-      and
-      result = x.resolve())
+      for_each_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 
   Expr getWhere() {
     exists(Expr x |
-      for_each_stmt_wheres(this, x)
-      and
-      result = x.resolve())
+      for_each_stmt_wheres(this, x) and
+      result = x.resolve()
+    )
   }
 }

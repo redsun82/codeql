@@ -7,8 +7,8 @@ class GuardStmtBase extends @guard_stmt, LabeledConditionalStmt {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      guard_stmts(this, x)
-      and
-      result = x.resolve())
+      guard_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 }

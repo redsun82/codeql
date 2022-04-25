@@ -7,8 +7,8 @@ class ThrowStmtBase extends @throw_stmt, Stmt {
 
   Expr getSubExpr() {
     exists(Expr x |
-      throw_stmts(this, x)
-      and
-      result = x.resolve())
+      throw_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -7,8 +7,8 @@ class ClosureExprBase extends @closure_expr, AbstractClosureExpr {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      closure_exprs(this, x)
-      and
-      result = x.resolve())
+      closure_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

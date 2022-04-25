@@ -19,7 +19,6 @@ repos:
       - id: codeql-format
         name: Fix QL file formatting
         files: \.qll?$
-        exclude: ^swift/.*/generated/
         language: system
         entry: codeql query format --in-place
 

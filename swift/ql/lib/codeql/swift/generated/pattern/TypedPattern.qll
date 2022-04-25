@@ -7,15 +7,15 @@ class TypedPatternBase extends @typed_pattern, Pattern {
 
   Pattern getSubPattern() {
     exists(Pattern x |
-      typed_patterns(this, x)
-      and
-      result = x.resolve())
+      typed_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 
   TypeRepr getTypeRepr() {
     exists(TypeRepr x |
-      typed_pattern_type_reprs(this, x)
-      and
-      result = x.resolve())
+      typed_pattern_type_reprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

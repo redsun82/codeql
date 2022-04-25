@@ -9,23 +9,19 @@ class SubscriptExprBase extends @subscript_expr, GenericContext, LookupExpr {
 
   Expr getBaseExpr() {
     exists(Expr x |
-      subscript_exprs(this, x)
-      and
-      result = x.resolve())
+      subscript_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   Argument getArgument(int index) {
     exists(Argument x |
-      subscript_expr_arguments(this, index, x)
-      and
-      result = x.resolve())
+      subscript_expr_arguments(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Argument getAnArgument() {
-    result = getArgument(_)
-  }
+  Argument getAnArgument() { result = getArgument(_) }
 
-  int getNumberOfArguments() {
-    result = count(getAnArgument())
-  }
+  int getNumberOfArguments() { result = count(getAnArgument()) }
 }

@@ -5,30 +5,23 @@ import codeql.swift.elements.decl.ParamDecl
 import codeql.swift.elements.decl.ValueDecl
 
 class AbstractFunctionDeclBase extends @abstract_function_decl, GenericContext, ValueDecl {
-
-  string getName() {
-    abstract_function_decls(this, result)
-  }
+  string getName() { abstract_function_decls(this, result) }
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      abstract_function_decl_bodies(this, x)
-      and
-      result = x.resolve())
+      abstract_function_decl_bodies(this, x) and
+      result = x.resolve()
+    )
   }
 
   ParamDecl getParam(int index) {
     exists(ParamDecl x |
-      abstract_function_decl_params(this, index, x)
-      and
-      result = x.resolve())
+      abstract_function_decl_params(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  ParamDecl getAParam() {
-    result = getParam(_)
-  }
+  ParamDecl getAParam() { result = getParam(_) }
 
-  int getNumberOfParams() {
-    result = count(getAParam())
-  }
+  int getNumberOfParams() { result = count(getAParam()) }
 }

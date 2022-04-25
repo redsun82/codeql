@@ -7,16 +7,12 @@ class EnumCaseDeclBase extends @enum_case_decl, Decl {
 
   EnumElementDecl getElement(int index) {
     exists(EnumElementDecl x |
-      enum_case_decl_elements(this, index, x)
-      and
-      result = x.resolve())
+      enum_case_decl_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  EnumElementDecl getAnElement() {
-    result = getElement(_)
-  }
+  EnumElementDecl getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

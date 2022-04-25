@@ -4,7 +4,5 @@ import codeql.swift.elements.pattern.Pattern
 class NamedPatternBase extends @named_pattern, Pattern {
   override string toString() { result = "NamedPattern" }
 
-  string getName() {
-    named_patterns(this, result)
-  }
+  string getName() { named_patterns(this, result) }
 }

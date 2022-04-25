@@ -7,16 +7,12 @@ class BraceStmtBase extends @brace_stmt, Stmt {
 
   AstNode getElement(int index) {
     exists(AstNode x |
-      brace_stmt_elements(this, index, x)
-      and
-      result = x.resolve())
+      brace_stmt_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  AstNode getAnElement() {
-    result = getElement(_)
-  }
+  AstNode getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

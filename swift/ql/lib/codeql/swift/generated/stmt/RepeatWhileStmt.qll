@@ -6,17 +6,17 @@ import codeql.swift.elements.stmt.Stmt
 class RepeatWhileStmtBase extends @repeat_while_stmt, LabeledStmt {
   override string toString() { result = "RepeatWhileStmt" }
 
-  Expr getCond() {
+  Expr getCondition() {
     exists(Expr x |
-      repeat_while_stmts(this, x, _)
-      and
-      result = x.resolve())
+      repeat_while_stmts(this, x, _) and
+      result = x.resolve()
+    )
   }
 
   Stmt getBody() {
     exists(Stmt x |
-      repeat_while_stmts(this, _, x)
-      and
-      result = x.resolve())
+      repeat_while_stmts(this, _, x) and
+      result = x.resolve()
+    )
   }
 }

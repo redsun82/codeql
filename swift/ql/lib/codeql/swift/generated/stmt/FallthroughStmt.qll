@@ -7,15 +7,15 @@ class FallthroughStmtBase extends @fallthrough_stmt, Stmt {
 
   CaseStmt getFallthroughSource() {
     exists(CaseStmt x |
-      fallthrough_stmts(this, x, _)
-      and
-      result = x.resolve())
+      fallthrough_stmts(this, x, _) and
+      result = x.resolve()
+    )
   }
 
   CaseStmt getFallthroughDest() {
     exists(CaseStmt x |
-      fallthrough_stmts(this, _, x)
-      and
-      result = x.resolve())
+      fallthrough_stmts(this, _, x) and
+      result = x.resolve()
+    )
   }
 }

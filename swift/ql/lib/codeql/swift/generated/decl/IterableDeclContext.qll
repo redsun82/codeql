@@ -3,19 +3,14 @@ import codeql.swift.elements.decl.Decl
 import codeql.swift.elements.Element
 
 class IterableDeclContextBase extends @iterable_decl_context, Element {
-
   Decl getMember(int index) {
     exists(Decl x |
-      iterable_decl_context_members(this, index, x)
-      and
-      result = x.resolve())
+      iterable_decl_context_members(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Decl getAMember() {
-    result = getMember(_)
-  }
+  Decl getAMember() { result = getMember(_) }
 
-  int getNumberOfMembers() {
-    result = count(getAMember())
-  }
+  int getNumberOfMembers() { result = count(getAMember()) }
 }

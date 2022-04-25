@@ -3,11 +3,10 @@ import codeql.swift.elements.expr.ApplyExpr
 import codeql.swift.elements.expr.Expr
 
 class SelfApplyExprBase extends @self_apply_expr, ApplyExpr {
-
-  Expr getBase() {
+  Expr getBaseExpr() {
     exists(Expr x |
-      self_apply_exprs(this, x)
-      and
-      result = x.resolve())
+      self_apply_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

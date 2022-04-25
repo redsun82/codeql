@@ -5,22 +5,16 @@ import codeql.swift.elements.decl.ValueDecl
 class EnumElementDeclBase extends @enum_element_decl, ValueDecl {
   override string toString() { result = "EnumElementDecl" }
 
-  string getName() {
-    enum_element_decls(this, result)
-  }
+  string getName() { enum_element_decls(this, result) }
 
   ParamDecl getParam(int index) {
     exists(ParamDecl x |
-      enum_element_decl_params(this, index, x)
-      and
-      result = x.resolve())
+      enum_element_decl_params(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  ParamDecl getAParam() {
-    result = getParam(_)
-  }
+  ParamDecl getAParam() { result = getParam(_) }
 
-  int getNumberOfParams() {
-    result = count(getAParam())
-  }
+  int getNumberOfParams() { result = count(getAParam()) }
 }

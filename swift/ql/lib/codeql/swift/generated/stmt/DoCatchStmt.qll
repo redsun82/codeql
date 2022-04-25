@@ -8,23 +8,19 @@ class DoCatchStmtBase extends @do_catch_stmt, LabeledStmt {
 
   Stmt getBody() {
     exists(Stmt x |
-      do_catch_stmts(this, x)
-      and
-      result = x.resolve())
+      do_catch_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 
   CaseStmt getCatch(int index) {
     exists(CaseStmt x |
-      do_catch_stmt_catches(this, index, x)
-      and
-      result = x.resolve())
+      do_catch_stmt_catches(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  CaseStmt getACatch() {
-    result = getCatch(_)
-  }
+  CaseStmt getACatch() { result = getCatch(_) }
 
-  int getNumberOfCatches() {
-    result = count(getACatch())
-  }
+  int getNumberOfCatches() { result = count(getACatch()) }
 }

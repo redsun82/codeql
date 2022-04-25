@@ -6,16 +6,12 @@ class TupleExprBase extends @tuple_expr, Expr {
 
   Expr getElement(int index) {
     exists(Expr x |
-      tuple_expr_elements(this, index, x)
-      and
-      result = x.resolve())
+      tuple_expr_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Expr getAnElement() {
-    result = getElement(_)
-  }
+  Expr getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

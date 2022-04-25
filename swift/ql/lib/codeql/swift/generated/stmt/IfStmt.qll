@@ -7,15 +7,15 @@ class IfStmtBase extends @if_stmt, LabeledConditionalStmt {
 
   Stmt getThen() {
     exists(Stmt x |
-      if_stmts(this, x)
-      and
-      result = x.resolve())
+      if_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 
   Stmt getElse() {
     exists(Stmt x |
-      if_stmt_elses(this, x)
-      and
-      result = x.resolve())
+      if_stmt_elses(this, x) and
+      result = x.resolve()
+    )
   }
 }

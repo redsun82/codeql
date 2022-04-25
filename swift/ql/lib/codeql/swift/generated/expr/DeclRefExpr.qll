@@ -8,23 +8,19 @@ class DeclRefExprBase extends @decl_ref_expr, Expr {
 
   Decl getDecl() {
     exists(Decl x |
-      decl_ref_exprs(this, x)
-      and
-      result = x.resolve())
+      decl_ref_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   Type getReplacementType(int index) {
     exists(Type x |
-      decl_ref_expr_replacement_types(this, index, x)
-      and
-      result = x.resolve())
+      decl_ref_expr_replacement_types(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Type getAReplacementType() {
-    result = getReplacementType(_)
-  }
+  Type getAReplacementType() { result = getReplacementType(_) }
 
-  int getNumberOfReplacementTypes() {
-    result = count(getAReplacementType())
-  }
+  int getNumberOfReplacementTypes() { result = count(getAReplacementType()) }
 }

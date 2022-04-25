@@ -7,8 +7,8 @@ class ExprPatternBase extends @expr_pattern, Pattern {
 
   Expr getSubExpr() {
     exists(Expr x |
-      expr_patterns(this, x)
-      and
-      result = x.resolve())
+      expr_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 }

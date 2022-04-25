@@ -7,8 +7,8 @@ class WhileStmtBase extends @while_stmt, LabeledConditionalStmt {
 
   Stmt getBody() {
     exists(Stmt x |
-      while_stmts(this, x)
-      and
-      result = x.resolve())
+      while_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 }

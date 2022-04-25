@@ -6,15 +6,15 @@ class AssignExprBase extends @assign_expr, Expr {
 
   Expr getDest() {
     exists(Expr x |
-      assign_exprs(this, x, _)
-      and
-      result = x.resolve())
+      assign_exprs(this, x, _) and
+      result = x.resolve()
+    )
   }
 
-  Expr getSrc() {
+  Expr getSource() {
     exists(Expr x |
-      assign_exprs(this, _, x)
-      and
-      result = x.resolve())
+      assign_exprs(this, _, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -2,6 +2,7 @@
 
 import logging
 import pathlib
+import subprocess
 from dataclasses import dataclass, field
 from typing import List, ClassVar
 
@@ -154,6 +155,14 @@ def is_generated(file):
         return next(contents).startswith("// generated")
 
 
+def format(codeql, files):
+    format_cmd = [codeql, "query", "format", "--in-place", "--"]
+    format_cmd.extend(str(f) for f in files)
+    res = subprocess.run(format_cmd, check=True, stderr=subprocess.PIPE, text=True)
+    for line in res.stderr.splitlines():
+        log.debug(line.strip())
+
+
 def generate(opts, renderer):
     input = opts.schema.resolve()
     out = opts.ql_output.resolve()
@@ -186,6 +195,7 @@ def generate(opts, renderer):
     renderer.render(all_imports, include_file)
 
     renderer.cleanup(existing)
+    format(opts.codeql_binary, renderer.written)
 
 
 if __name__ == "__main__":

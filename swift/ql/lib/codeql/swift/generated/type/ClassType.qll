@@ -7,8 +7,8 @@ class ClassTypeBase extends @class_type, NominalType {
 
   ClassDecl getDecl() {
     exists(ClassDecl x |
-      class_types(this, x)
-      and
-      result = x.resolve())
+      class_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

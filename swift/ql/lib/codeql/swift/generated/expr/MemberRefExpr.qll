@@ -7,8 +7,8 @@ class MemberRefExprBase extends @member_ref_expr, LookupExpr {
 
   Expr getBaseExpr() {
     exists(Expr x |
-      member_ref_exprs(this, x)
-      and
-      result = x.resolve())
+      member_ref_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

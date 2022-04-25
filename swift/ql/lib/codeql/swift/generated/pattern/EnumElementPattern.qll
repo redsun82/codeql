@@ -7,15 +7,15 @@ class EnumElementPatternBase extends @enum_element_pattern, Pattern {
 
   EnumElementDecl getElement() {
     exists(EnumElementDecl x |
-      enum_element_patterns(this, x)
-      and
-      result = x.resolve())
+      enum_element_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 
   Pattern getSubPattern() {
     exists(Pattern x |
-      enum_element_pattern_sub_patterns(this, x)
-      and
-      result = x.resolve())
+      enum_element_pattern_sub_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 }

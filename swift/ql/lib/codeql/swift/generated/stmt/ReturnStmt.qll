@@ -7,8 +7,8 @@ class ReturnStmtBase extends @return_stmt, Stmt {
 
   Expr getResult() {
     exists(Expr x |
-      return_stmt_results(this, x)
-      and
-      result = x.resolve())
+      return_stmt_results(this, x) and
+      result = x.resolve()
+    )
   }
 }

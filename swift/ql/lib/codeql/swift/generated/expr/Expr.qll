@@ -3,11 +3,10 @@ import codeql.swift.elements.AstNode
 import codeql.swift.elements.type.Type
 
 class ExprBase extends @expr, AstNode {
-
   Type getType() {
     exists(Type x |
-      expr_types(this, x)
-      and
-      result = x.resolve())
+      expr_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

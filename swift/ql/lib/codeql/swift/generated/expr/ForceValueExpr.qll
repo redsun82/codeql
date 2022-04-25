@@ -6,8 +6,8 @@ class ForceValueExprBase extends @force_value_expr, Expr {
 
   Expr getSubExpr() {
     exists(Expr x |
-      force_value_exprs(this, x)
-      and
-      result = x.resolve())
+      force_value_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

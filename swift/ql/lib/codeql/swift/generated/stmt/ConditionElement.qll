@@ -8,22 +8,22 @@ class ConditionElementBase extends @condition_element, Locatable {
 
   Expr getBoolean() {
     exists(Expr x |
-      condition_element_booleans(this, x)
-      and
-      result = x.resolve())
+      condition_element_booleans(this, x) and
+      result = x.resolve()
+    )
   }
 
   Pattern getPattern() {
     exists(Pattern x |
-      condition_element_patterns(this, x)
-      and
-      result = x.resolve())
+      condition_element_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 
   Expr getInitializer() {
     exists(Expr x |
-      condition_element_initializers(this, x)
-      and
-      result = x.resolve())
+      condition_element_initializers(this, x) and
+      result = x.resolve()
+    )
   }
 }

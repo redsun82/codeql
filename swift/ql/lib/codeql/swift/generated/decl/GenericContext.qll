@@ -3,19 +3,14 @@ import codeql.swift.elements.Element
 import codeql.swift.elements.decl.GenericTypeParamDecl
 
 class GenericContextBase extends @generic_context, Element {
-
   GenericTypeParamDecl getGenericTypeParam(int index) {
     exists(GenericTypeParamDecl x |
-      generic_context_generic_type_params(this, index, x)
-      and
-      result = x.resolve())
+      generic_context_generic_type_params(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  GenericTypeParamDecl getAGenericTypeParam() {
-    result = getGenericTypeParam(_)
-  }
+  GenericTypeParamDecl getAGenericTypeParam() { result = getGenericTypeParam(_) }
 
-  int getNumberOfGenericTypeParams() {
-    result = count(getAGenericTypeParam())
-  }
+  int getNumberOfGenericTypeParams() { result = count(getAGenericTypeParam()) }
 }

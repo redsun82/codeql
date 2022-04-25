@@ -6,8 +6,8 @@ class ParenPatternBase extends @paren_pattern, Pattern {
 
   Pattern getSubPattern() {
     exists(Pattern x |
-      paren_patterns(this, x)
-      and
-      result = x.resolve())
+      paren_patterns(this, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -8,7 +8,5 @@ import codeql.swift.elements.typerepr.TypeRepr
 class UnknownAstNodeBase extends @unknown_ast_node, Decl, Expr, Pattern, Stmt, TypeRepr {
   override string toString() { result = "UnknownAstNode" }
 
-  string getName() {
-    unknown_ast_nodes(this, result)
-  }
+  string getName() { unknown_ast_nodes(this, result) }
 }

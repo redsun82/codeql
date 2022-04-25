@@ -2,11 +2,10 @@
 import codeql.swift.elements.expr.Expr
 
 class ImplicitConversionExprBase extends @implicit_conversion_expr, Expr {
-
   Expr getSubExpr() {
     exists(Expr x |
-      implicit_conversion_exprs(this, x)
-      and
-      result = x.resolve())
+      implicit_conversion_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

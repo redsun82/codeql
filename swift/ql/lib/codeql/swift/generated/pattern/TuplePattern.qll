@@ -6,16 +6,12 @@ class TuplePatternBase extends @tuple_pattern, Pattern {
 
   Pattern getElement(int index) {
     exists(Pattern x |
-      tuple_pattern_elements(this, index, x)
-      and
-      result = x.resolve())
+      tuple_pattern_elements(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Pattern getAnElement() {
-    result = getElement(_)
-  }
+  Pattern getAnElement() { result = getElement(_) }
 
-  int getNumberOfElements() {
-    result = count(getAnElement())
-  }
+  int getNumberOfElements() { result = count(getAnElement()) }
 }

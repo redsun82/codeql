@@ -7,8 +7,8 @@ class TypeExprBase extends @type_expr, Expr {
 
   UnknownAstNode getTypeRepr() {
     exists(UnknownAstNode x |
-      type_expr_type_reprs(this, x)
-      and
-      result = x.resolve())
+      type_expr_type_reprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

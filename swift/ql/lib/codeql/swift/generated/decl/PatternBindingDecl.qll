@@ -8,31 +8,23 @@ class PatternBindingDeclBase extends @pattern_binding_decl, Decl {
 
   Expr getInit(int index) {
     exists(Expr x |
-      pattern_binding_decl_inits(this, index, x)
-      and
-      result = x.resolve())
+      pattern_binding_decl_inits(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Expr getAnInit() {
-    result = getInit(_)
-  }
+  Expr getAnInit() { result = getInit(_) }
 
-  int getNumberOfInits() {
-    result = count(getAnInit())
-  }
+  int getNumberOfInits() { result = count(getAnInit()) }
 
   Pattern getPattern(int index) {
     exists(Pattern x |
-      pattern_binding_decl_patterns(this, index, x)
-      and
-      result = x.resolve())
+      pattern_binding_decl_patterns(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  Pattern getAPattern() {
-    result = getPattern(_)
-  }
+  Pattern getAPattern() { result = getPattern(_) }
 
-  int getNumberOfPatterns() {
-    result = count(getAPattern())
-  }
+  int getNumberOfPatterns() { result = count(getAPattern()) }
 }

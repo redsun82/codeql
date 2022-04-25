@@ -6,25 +6,21 @@ import codeql.swift.elements.stmt.LabeledStmt
 class SwitchStmtBase extends @switch_stmt, LabeledStmt {
   override string toString() { result = "SwitchStmt" }
 
-  Expr getSubjectExpr() {
+  Expr getExpr() {
     exists(Expr x |
-      switch_stmts(this, x)
-      and
-      result = x.resolve())
+      switch_stmts(this, x) and
+      result = x.resolve()
+    )
   }
 
   CaseStmt getCase(int index) {
     exists(CaseStmt x |
-      switch_stmt_cases(this, index, x)
-      and
-      result = x.resolve())
+      switch_stmt_cases(this, index, x) and
+      result = x.resolve()
+    )
   }
 
-  CaseStmt getACase() {
-    result = getCase(_)
-  }
+  CaseStmt getACase() { result = getCase(_) }
 
-  int getNumberOfCases() {
-    result = count(getACase())
-  }
+  int getNumberOfCases() { result = count(getACase()) }
 }

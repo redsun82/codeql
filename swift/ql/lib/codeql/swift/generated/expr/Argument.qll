@@ -5,14 +5,12 @@ import codeql.swift.elements.expr.Expr
 class ArgumentBase extends @argument, Element {
   override string toString() { result = "Argument" }
 
-  string getLabel() {
-    arguments(this, result, _)
-  }
+  string getLabel() { arguments(this, result, _) }
 
   Expr getExpr() {
     exists(Expr x |
-      arguments(this, _, x)
-      and
-      result = x.resolve())
+      arguments(this, _, x) and
+      result = x.resolve()
+    )
   }
 }

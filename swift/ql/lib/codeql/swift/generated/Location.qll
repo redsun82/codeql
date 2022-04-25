@@ -7,24 +7,16 @@ class LocationBase extends @location, Element {
 
   File getFile() {
     exists(File x |
-      locations(this, x, _, _, _, _)
-      and
-      result = x.resolve())
+      locations(this, x, _, _, _, _) and
+      result = x.resolve()
+    )
   }
 
-  int getBeginLine() {
-    locations(this, _, result, _, _, _)
-  }
+  int getBeginLine() { locations(this, _, result, _, _, _) }
 
-  int getBeginColumn() {
-    locations(this, _, _, result, _, _)
-  }
+  int getBeginColumn() { locations(this, _, _, result, _, _) }
 
-  int getEndLine() {
-    locations(this, _, _, _, result, _)
-  }
+  int getEndLine() { locations(this, _, _, _, result, _) }
 
-  int getEndColumn() {
-    locations(this, _, _, _, _, result)
-  }
+  int getEndColumn() { locations(this, _, _, _, _, result) }
 }

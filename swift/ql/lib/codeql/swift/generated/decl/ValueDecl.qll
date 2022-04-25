@@ -3,11 +3,10 @@ import codeql.swift.elements.decl.Decl
 import codeql.swift.elements.type.Type
 
 class ValueDeclBase extends @value_decl, Decl {
-
   Type getInterfaceType() {
     exists(Type x |
-      value_decls(this, x)
-      and
-      result = x.resolve())
+      value_decls(this, x) and
+      result = x.resolve()
+    )
   }
 }

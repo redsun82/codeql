@@ -7,8 +7,8 @@ class StructTypeBase extends @struct_type, NominalType {
 
   StructDecl getDecl() {
     exists(StructDecl x |
-      struct_types(this, x)
-      and
-      result = x.resolve())
+      struct_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

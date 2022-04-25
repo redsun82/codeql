@@ -4,7 +4,5 @@ import codeql.swift.elements.Element
 class FileBase extends @file, Element {
   override string toString() { result = "File" }
 
-  string getName() {
-    files(this, result)
-  }
+  string getName() { files(this, result) }
 }

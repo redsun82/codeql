@@ -6,8 +6,8 @@ class InOutExprBase extends @in_out_expr, Expr {
 
   Expr getSubExpr() {
     exists(Expr x |
-      in_out_exprs(this, x)
-      and
-      result = x.resolve())
+      in_out_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

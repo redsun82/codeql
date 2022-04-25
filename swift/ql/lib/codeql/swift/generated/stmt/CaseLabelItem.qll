@@ -8,15 +8,15 @@ class CaseLabelItemBase extends @case_label_item, AstNode {
 
   Pattern getPattern() {
     exists(Pattern x |
-      case_label_items(this, x)
-      and
-      result = x.resolve())
+      case_label_items(this, x) and
+      result = x.resolve()
+    )
   }
 
   Expr getGuard() {
     exists(Expr x |
-      case_label_item_guards(this, x)
-      and
-      result = x.resolve())
+      case_label_item_guards(this, x) and
+      result = x.resolve()
+    )
   }
 }

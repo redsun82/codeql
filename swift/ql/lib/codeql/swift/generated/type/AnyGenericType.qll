@@ -3,18 +3,17 @@ import codeql.swift.elements.decl.Decl
 import codeql.swift.elements.type.Type
 
 class AnyGenericTypeBase extends @any_generic_type, Type {
-
   Type getParent() {
     exists(Type x |
-      any_generic_type_parents(this, x)
-      and
-      result = x.resolve())
+      any_generic_type_parents(this, x) and
+      result = x.resolve()
+    )
   }
 
   Decl getDeclaration() {
     exists(Decl x |
-      any_generic_types(this, x)
-      and
-      result = x.resolve())
+      any_generic_types(this, x) and
+      result = x.resolve()
+    )
   }
 }

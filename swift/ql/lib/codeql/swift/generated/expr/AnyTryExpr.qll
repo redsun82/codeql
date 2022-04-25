@@ -2,11 +2,10 @@
 import codeql.swift.elements.expr.Expr
 
 class AnyTryExprBase extends @any_try_expr, Expr {
-
   Expr getSubExpr() {
     exists(Expr x |
-      any_try_exprs(this, x)
-      and
-      result = x.resolve())
+      any_try_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }

@@ -7,8 +7,8 @@ class TopLevelCodeDeclBase extends @top_level_code_decl, Decl {
 
   BraceStmt getBody() {
     exists(BraceStmt x |
-      top_level_code_decls(this, x)
-      and
-      result = x.resolve())
+      top_level_code_decls(this, x) and
+      result = x.resolve()
+    )
   }
 }

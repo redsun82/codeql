@@ -9,29 +9,29 @@ class InterpolatedStringLiteralExprBase extends @interpolated_string_literal_exp
 
   OpaqueValueExpr getInterpolationExpr() {
     exists(OpaqueValueExpr x |
-      interpolated_string_literal_expr_interpolation_exprs(this, x)
-      and
-      result = x.resolve())
+      interpolated_string_literal_expr_interpolation_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   Expr getInterpolationCountExpr() {
     exists(Expr x |
-      interpolated_string_literal_expr_interpolation_count_exprs(this, x)
-      and
-      result = x.resolve())
+      interpolated_string_literal_expr_interpolation_count_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   Expr getLiteralCapacityExpr() {
     exists(Expr x |
-      interpolated_string_literal_expr_literal_capacity_exprs(this, x)
-      and
-      result = x.resolve())
+      interpolated_string_literal_expr_literal_capacity_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 
   TapExpr getAppendingExpr() {
     exists(TapExpr x |
-      interpolated_string_literal_expr_appending_exprs(this, x)
-      and
-      result = x.resolve())
+      interpolated_string_literal_expr_appending_exprs(this, x) and
+      result = x.resolve()
+    )
   }
 }
