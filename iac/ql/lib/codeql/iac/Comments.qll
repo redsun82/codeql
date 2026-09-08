@@ -22,11 +22,9 @@ private predicate isSupportedYamlFile(File file) {
   or
   exists(OpenApi::Document document | document.getFile() = file)
   or
-  exists(YamlDocument document |
+  exists(YamlMapping document |
     document.getFile() = file and
-    document instanceof YamlMapping and
     document
-        .(YamlMapping)
         .lookup("$schema")
         .(YamlString)
         .getValue()
@@ -80,14 +78,14 @@ private predicate getIacCommentText(Location location, string text, string delim
  */
 class Comment extends Location {
   Comment() {
-    exists(string text, string delimiterStyle | getIacCommentText(this, text, delimiterStyle))
+    getIacCommentText(this, _, _)
   }
 
   /** Gets the comment text without its delimiter. */
   string getText() {
-    exists(string delimiterStyle | getIacCommentText(this, result, delimiterStyle))
+    getIacCommentText(this, result, _)
   }
 
   /** Holds if this comment uses `#` as its delimiter. */
-  predicate hasHashDelimiter() { exists(string text | getIacCommentText(this, text, "hash")) }
+  predicate hasHashDelimiter() { getIacCommentText(this, _, "hash") }
 }
