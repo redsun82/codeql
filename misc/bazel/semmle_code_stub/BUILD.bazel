@@ -1,5 +1,5 @@
 # Stand-in for the `git_info` target provided by the internal repository, so that targets
-# depending on it (e.g. `//csharp/scripts:git-assembly-info-src`) can be built from this
+# depending on it (e.g. `//misc/bazel/csharp:git-assembly-info-src`) can be built from this
 # repository in isolation.
 genrule(
     name = "git-info-files",
